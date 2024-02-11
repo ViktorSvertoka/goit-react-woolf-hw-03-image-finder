@@ -1,6 +1,5 @@
 import React from 'react';
 import { List } from './ImageGallery.styled';
-
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
 export const ImageGallery = ({ images }) => {

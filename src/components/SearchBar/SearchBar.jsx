@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { BsSearch } from 'react-icons/bs';
-
 import {
   SearchForm,
   SearchInput,

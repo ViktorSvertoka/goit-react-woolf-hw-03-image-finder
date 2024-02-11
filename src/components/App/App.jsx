@@ -4,8 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import Button from '../Button/Button';
-import { ToastContainer, toast, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 class App extends Component {
   state = {
@@ -48,9 +47,7 @@ class App extends Component {
       const data = await API.getImages(searchName, currentPage);
 
       if (data.hits.length === 0) {
-        return toast.info('Sorry image not found...', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
+        return Notify.info('Sorry image not found...');
       }
 
       const normalizedImages = API.normalizedImages(data.hits);
@@ -73,7 +70,6 @@ class App extends Component {
 
     return (
       <div>
-        <ToastContainer transition={Slide} />
         <SearchBar onSubmit={this.handleSubmit} />
         {images.length > 0 ? (
           <ImageGallery images={images} />
